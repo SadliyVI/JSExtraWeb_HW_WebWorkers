@@ -70,5 +70,3 @@ function anySignal(signals) {
 
     return controller.signal;
 }
-
-console.log('[api] fetching', url.toString());
