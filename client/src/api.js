@@ -7,15 +7,15 @@ const WORKER = new DataWorker();
 
 const API_BASE = 'https://js-extra-webworkers-api.onrender.com';
 
-// function getApiBase() {
-//     return localStorage.getItem('API_BASE') || DEFAULT_API_BASE;
-// }
+function getApiBase() {
+    return localStorage.getItem('API_BASE') || DEFAULT_API_BASE;
+}
 
 export async function fetchNews({ signal, force }) {
     const url = new URL('/api/news', getApiBase());
     if (force) url.searchParams.set('t', String(Date.now()));
 
-    const timeoutMs = 4500;
+    const timeoutMs = 30000;
     const controller = new AbortController();
     const t = setTimeout(() => controller.abort(), timeoutMs);
 

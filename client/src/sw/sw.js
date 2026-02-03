@@ -16,7 +16,7 @@ registerRoute(
     ({ url }) => url.pathname.includes('/api/news'),
     new NetworkFirst({
         cacheName: 'api-cache',
-        networkTimeoutSeconds: 3
+        networkTimeoutSeconds: 15
     })
 );
 
