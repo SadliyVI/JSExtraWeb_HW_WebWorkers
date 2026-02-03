@@ -13,6 +13,10 @@ WebWorker нормализует данные в фоне.
 
 [![Deploy to GitHub Pages](https://github.com/SadliyVI/JSExtraWeb_HW_WebWorkers/actions/workflows/main.yml/badge.svg)](https://github.com/SadliyVI/JSExtraWeb_HW_WebWorkers/actions/workflows/main.yml)
 
-## 🚀 Демо-онлайн
+## 🚀 Демо-онлайн фронтенд
 
-[Live demo front](https://js-extra-webworkers-api.onrender.com/)
+[Live demo front](https://sadliyvi.github.io/JSExtraWeb_HW_WebWorkers/)
+
+## 🚀 Демо-онлайн бэкэнд
+
+[Live demo back](https://js-extra-webworkers-api.onrender.com/)
