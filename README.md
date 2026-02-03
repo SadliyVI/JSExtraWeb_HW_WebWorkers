@@ -15,4 +15,4 @@ WebWorker нормализует данные в фоне.
 
 ## 🚀 Демо-онлайн
 
-[Live demo front](https://sadliyvi.github.io/JSExtraWeb_HW_WebWorkers//)
+[Live demo front](https://js-extra-webworkers-api.onrender.com/)

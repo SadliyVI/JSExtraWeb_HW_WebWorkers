@@ -3,11 +3,13 @@ import DataWorker from './workers/data.worker';
 const WORKER = new DataWorker();
 
 // Для локальной разработки: http://localhost:4000
-const DEFAULT_API_BASE = 'http://localhost:4000';
+// const DEFAULT_API_BASE = 'http://localhost:4000';
 
-function getApiBase() {
-    return localStorage.getItem('API_BASE') || DEFAULT_API_BASE;
-}
+const API_BASE = 'https://js-extra-webworkers-api.onrender.com';
+
+// function getApiBase() {
+//     return localStorage.getItem('API_BASE') || DEFAULT_API_BASE;
+// }
 
 export async function fetchNews({ signal, force }) {
     const url = new URL('/api/news', getApiBase());
