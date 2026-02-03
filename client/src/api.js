@@ -15,7 +15,7 @@ export async function fetchNews({ signal, force }) {
     const url = new URL('/api/news', getApiBase());
     if (force) url.searchParams.set('t', String(Date.now()));
 
-    const timeoutMs = 30000;
+    const timeoutMs = 10000;
     const controller = new AbortController();
     const t = setTimeout(() => controller.abort(), timeoutMs);
 
@@ -70,3 +70,5 @@ function anySignal(signals) {
 
     return controller.signal;
 }
+
+console.log('[api] fetching', url.toString());
