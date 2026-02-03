@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f0f0f0" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>Новости мира кино</title>
+</head>
+
+<body>
+    <div class="page">
+        <div class="card">
+            <header class="card__header">
+                <h1 class="card__title">Новости мира кино</h1>
+                <button class="card__refresh" id="refreshBtn" type="button">Обновить</button>
+            </header>
+
+            <main class="card__body">
+                <div id="statusLayer" class="status-layer status-layer--hidden" aria-live="polite">
+                    <div class="status-layer__message">
+                        <div class="status-layer__title">Не удалось загрузить данные</div>
+                        <div class="status-layer__subtitle">Проверьте подключение<br />и обновите страницу</div>
+                    </div>
+                </div>
+
+                <ul id="list" class="news-list" aria-busy="true"></ul>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

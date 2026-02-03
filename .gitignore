@@ -1,0 +1,17 @@
+# common
+.DS_Store
+.vscode
+.idea
+
+# node
+node_modules
+npm-debug.log*
+yarn-error.log*
+
+# build artifacts
+dist
+build
+
+# env
+.env
+.env.*
