@@ -34,15 +34,6 @@ module.exports = (_, argv) => {
                     test: /\.(png|jpg|jpeg|gif|svg)$/i,
                     type: 'asset/resource'
                 },
-                {
-                    test: /\.worker\.js$/i,
-                    use: [
-                        {
-                            loader: 'worker-loader',
-                            options: { filename: isProd ? 'assets/[name].[contenthash].worker.js' : 'assets/[name].worker.js' }
-                        }
-                    ]
-                }
             ]
         },
         plugins: [

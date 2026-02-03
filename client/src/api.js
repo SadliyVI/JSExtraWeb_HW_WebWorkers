@@ -1,31 +1,31 @@
-import DataWorker from './workers/data.worker';
+// Webpack 5: корректный способ подключить воркер без worker-loader
+const WORKER = new Worker(new URL('./workers/data.worker.js', import.meta.url), {
+    type: 'module'
+});
 
-const WORKER = new DataWorker();
-
-// Для локальной разработки: http://localhost:4000
-// const DEFAULT_API_BASE = 'http://localhost:4000';
-
+// Зашитый API на Render
 const API_BASE = 'https://js-extra-webworkers-api.onrender.com';
 
-function getApiBase() {
-    return localStorage.getItem('API_BASE') || DEFAULT_API_BASE;
-}
-
 export async function fetchNews({ signal, force }) {
-    const url = new URL('/api/news', getApiBase());
+    const url = new URL('/api/news', API_BASE);
     if (force) url.searchParams.set('t', String(Date.now()));
 
-    const timeoutMs = 10000;
+    // Render (free) может "просыпаться" 10-30s
+    const timeoutMs = 30000;
     const controller = new AbortController();
     const t = setTimeout(() => controller.abort(), timeoutMs);
 
     const combinedSignal = anySignal([signal, controller.signal]);
 
     try {
-        const res = await fetch(url.toString(), { signal: combinedSignal, cache: 'no-store' });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const raw = await res.json();
+        const res = await fetch(url.toString(), {
+            signal: combinedSignal,
+            cache: 'no-store'
+        });
 
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        const raw = await res.json();
         const normalized = await runWorkerNormalize(raw);
         return normalized;
     } finally {
